@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--命名空间  给sql隔离 -->
+<mapper namespace="user">
+
+    <!--#{id} 占位符 如果parameterType是简单类型 key命名都可以value 或者val-->
+    <select id="selectUserOne" parameterType="int" resultType="user">
+        SELECT user_id id, user_name userName,pass_word password, real_name realName,email,cell_phone cellPhone,address,user_type userType,state,create_by createBy,create_date createDate,update_by updateBy,update_date updateDate
+        FROM tb_user where user_id=#{ss}
+    </select>
+</mapper>

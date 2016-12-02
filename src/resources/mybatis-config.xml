@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="jdbc.properties"/>
+            <!--类型命名-->
+    <typeAliases>
+        <!--给包取一个别名-->
+        <typeAlias alias="user" type="com.fengze.domain.UserDo"/>
+    </typeAliases>
+        <!--默认开发环境项-->
+    <environments default="development">
+        <!--开发环境项-->
+        <environment id="development">
+            <!--事务管理类型-->
+            <transactionManager type="JDBC"/>
+            <!--数据源 类型="池"-->
+            <dataSource type="POOLED">
+                <!--给jdbc的项区别名-->
+                <!--  property  性能 ,性质-->
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--映射器-->
+    <mappers>
+        <mapper resource="mapper/UserMapper.xml"/>
+        <mapper resource="sqlmap/UserMapper.xml"/>
+    </mappers>
+
+</configuration>
